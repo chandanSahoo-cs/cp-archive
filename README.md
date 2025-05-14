@@ -1,0 +1,1 @@
+This repository stores timestamped snapshots of changed .cpp files automatically exported from the source repository. Each file reflects a committed solution, named using the problem title and the time of submission.
