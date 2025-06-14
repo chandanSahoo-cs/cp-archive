@@ -15,8 +15,33 @@ const int mod = 1e9+7;
 #define deb(x...)
 #endif
 
+ll calcK(vector<ll>&a, double m){
+    ll cnt=0;
+
+    for(auto ele:a){
+        cnt+=(double)ele/m;
+    }
+
+    return cnt;
+}
+
 void realmsDomain(){
- cout<<"Chandan"<<"\n";
+ ll n,k; cin>>n>>k;
+ vector<ll>a(n);
+ for(auto &ele:a) cin>>ele;
+ double l=0,r=1e7;
+ double ans = 0;
+ for(ll i=0;i<=100;i++){
+    double m = l+(r-l)/2.0;
+
+    if(calcK(a,m)>=k){
+        l=m;
+        ans = max(ans,m);
+    }
+    else r=m;
+ }
+
+ cout<<fixed<<setprecision(10)<<ans;   
 }
 
 int main() {
@@ -30,7 +55,7 @@ int main() {
 
     ll tsts = 1 ; 
 
-    cin>>tsts;    
+    // cin>>tsts;    
 
     for(ll testcase = 1 ; testcase <=  tsts ; testcase++ ){
         realmsDomain();
